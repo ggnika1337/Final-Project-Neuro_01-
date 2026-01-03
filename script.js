@@ -14,3 +14,27 @@ themeBtn.addEventListener("click", () => {
 });
 
 console.log(isRight);
+
+// HAMBURGER
+
+var burgerMenu = document.getElementById("burger-menu");
+var overlay = document.getElementById("menu");
+
+burgerX.style.display = "none";
+
+burgerMenu.addEventListener("click", function () {
+  overlay.classList.toggle("overlay");
+  let burgerX = document.getElementById("burgerX");
+  let burger = document.getElementById("burger");
+  let burgerTab = document.getElementsByClassName("burger");
+
+  // ICON TOGGLE
+  if (burgerX.style.display === "block") {
+    burgerX.style.display = "none";
+    burger.style.display = "block";
+    burgerTab.style.position = "fixed";
+  } else {
+    burgerX.style.display = "block";
+    burger.style.display = "none";
+  }
+});
