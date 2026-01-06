@@ -228,7 +228,7 @@ header {
 
 /* HAMBURGER */
 
-/* FIRST PAGE  */
+/* FIRST PAGE START  */
 
 .heading-neuro {
   text-decoration: none;
@@ -243,6 +243,7 @@ header {
   gap: 20px;
   max-width: 1210px;
   width: 100%;
+  z-index: 2;
 }
 
 .location-time-theme {
@@ -276,7 +277,8 @@ header {
 
 /* LIGHTMODE DARKMODE BUTTON STYLE */
 
-.theme-btn {
+.theme-btn,
+.theme-btn-overlay {
   width: 40px;
   height: 24px;
   border-radius: 56px;
@@ -298,7 +300,7 @@ header {
   transition: all 0.3s ease;
 }
 
-/* SECOND TOP */
+/* SECOND FIRST PAGE */
 
 .second-top {
   padding-top: 122px;
@@ -343,7 +345,92 @@ header {
   position: relative;
 }
 
+/* THIRD FIRST PAGE */
+
+.third-top {
+  padding-left: 150px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  max-width: 600px;
+  width: 100%;
+}
+
+.page-one-text {
+  font-weight: 300;
+  font-size: 18px;
+  display: flex;
+  max-width: 280px;
+  width: 100%;
+}
+
+.round {
+  min-width: 108px;
+  height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e548;
+  border-radius: 100%;
+
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1.6%;
+  color: black;
+}
+
+video {
+  max-width: 290px;
+  max-height: 160px;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: relative;
+  object-fit: contain;
+}
+
+.video-btn {
+  width: 64px;
+  height: 64px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  position: absolute;
+  top: 95px;
+  right: 205px;
+}
+
+.video-container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  position: relative;
+  margin-top: 30px;
+}
+
+#videoLength,
+.reels {
+  font-weight: 400;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.reels {
+  padding-top: 5px;
+  padding-right: 205px;
+  min-width: 292px;
+}
+
 @media (max-width: 585px) {
+  header {
+    height: 408px;
+  }
+  .second-top {
+    padding-top: 322px;
+  }
   .location,
   .current-time {
     display: none;
@@ -362,5 +449,40 @@ header {
   }
   .burger {
     display: none;
+  }
+  .third-top {
+    flex-direction: column;
+    padding-left: 0px;
+    padding-top: 17px;
+    align-items: flex-start;
+    gap: 62px;
+  }
+  video {
+    max-width: 284px;
+    max-height: 284px;
+  }
+  .video-container {
+    position: absolute;
+    margin-left: 30px;
+  }
+  .video-btn {
+    width: 96px;
+    height: 96px;
+    top: 130px;
+    right: 170px;
+  }
+  #videoLength {
+    position: absolute;
+    top: 250px;
+    right: 27px;
+    z-index: 1;
+  }
+  .reels {
+    position: absolute;
+    z-index: 1;
+    top: 250px;
+    right: 180px;
+    min-width: 20px;
+    padding-right: 0px;
   }
 }
