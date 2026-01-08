@@ -82,9 +82,20 @@ let playBtn = document.querySelector(".video-btn");
 playBtn.addEventListener("click", () => {
   if (video.paused) {
     video.play();
-    playBtn.style.opacity = 0.1;
+    playBtn.style.opacity = 0.2;
   } else {
     video.pause();
-        playBtn.style.opacity = 1;
+    playBtn.style.opacity = 1;
   }
+});
+
+// SCROLL TO BOTTOM FUNC
+
+let toEnd = document.getElementById("toBottom");
+
+toEnd.addEventListener("click", () => {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth",
+  });
 });
