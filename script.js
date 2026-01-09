@@ -42,8 +42,8 @@ timeOverlay.innerHTML = `${weekday.toUpperCase()} ${day}.${month}`;
 
 // HAMBURGER
 
-var burgerMenu = document.getElementById("burger-menu");
-var overlay = document.getElementById("menu");
+let burgerMenu = document.getElementById("burgerMenu");
+let overlay = document.getElementById("menu");
 
 burgerX.style.display = "none";
 
@@ -51,16 +51,42 @@ burgerMenu.addEventListener("click", function () {
   overlay.classList.toggle("overlay");
   let burgerX = document.getElementById("burgerX");
   let burger = document.getElementById("burger");
-  let burgerTab = document.getElementsByClassName("burger");
+  let burgerBar = document.getElementById("burgerBar");
 
-  // ICON TOGGLE
+  if (burgerBar.style.position === "fixed") {
+    burgerBar.style.position = "relative";
+    document.body.style.overflow = "auto";
+  } else {
+    burgerBar.style.position = "fixed";
+    document.body.style.overflow = "hidden";
+  }
+
   if (burgerX.style.display === "block") {
     burgerX.style.display = "none";
     burger.style.display = "block";
-    burgerTab.style.position = "fixed";
   } else {
     burgerX.style.display = "block";
     burger.style.display = "none";
+  }
+});
+
+// HAMBURGER MOBILE
+
+let burgerMobileButtons = document.querySelectorAll(".burger-btn-mobile");
+let burgerImgMobile = document.querySelector(".burgerImgMobile");
+let burgerImgMobileX = document.querySelector(".burgerImgMobileX");
+
+burgerMobileButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    overlay.classList.toggle("overlay");
+  });
+
+  if (burgerBar.style.position === "fixed") {
+    burgerBar.style.position = "relative";
+    document.body.style.overflow = "auto";
+  } else {
+    burgerBar.style.position = "fixed";
+    document.body.style.overflow = "hidden";
   }
 });
 
