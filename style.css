@@ -18,21 +18,13 @@ body {
   background-color: rgb(51, 51, 51);
 }
 
-/* HIDE SCROLLBAR */
-/* body::-webkit-scrollbar {
-  display: none;
-} */
-/* HIDE SCROLLBAR */
-
 .root {
-  max-width: 1440px;
   height: 6167px;
   width: 100%;
   background-color: grey;
 }
 
 header {
-  max-width: 1440px;
   max-height: 900px;
   width: 100%;
   height: 100vh;
@@ -120,7 +112,6 @@ header {
   flex-direction: column;
   gap: 120px;
   z-index: 3;
-  max-width: 1440px;
   min-height: 900px;
   width: 100%;
   position: fixed;
@@ -128,11 +119,12 @@ header {
   height: 0;
   visibility: hidden;
   opacity: 0;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   &.overlay {
     visibility: visible;
     opacity: 1;
     padding-left: clamp(110px, 10vw, 150px);
+    padding-right: 50px;
     padding-top: 50px;
     background: rgba(0, 0, 0, 1);
     overflow: hidden;
@@ -302,9 +294,7 @@ header {
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  max-width: 1210px;
   width: 100%;
-  padding-right: 50px;
 }
 
 .location-time-theme {
@@ -454,6 +444,7 @@ header {
   font-size: 12px;
   letter-spacing: 1.6%;
   color: black;
+  text-decoration: none;
 }
 
 video {
@@ -512,7 +503,7 @@ video {
   cursor: pointer;
   position: absolute;
   align-self: center;
-  top: 875px;
+  bottom: 0px;
 }
 
 /* PAGE 2 START */
@@ -736,9 +727,6 @@ footer {
     right: 11px;
     z-index: 1;
   }
-  .first-top {
-    padding-right: 24px;
-  }
   .reels {
     position: absolute;
     z-index: 1;
@@ -751,10 +739,14 @@ footer {
     top: 730px;
     align-self: flex-end;
   }
+  .first-top {
+    padding-right: 24px;
+  }
   #menu {
     min-height: 100%;
     &.overlay {
       padding-left: 24px;
+      padding-right: 0px;
     }
   }
 
@@ -850,6 +842,6 @@ footer {
   .bottom-third {
     gap: clamp(13px, 5vw, 60px);
     position: absolute;
-    bottom: 80px;
+    bottom: 60px;
   }
 }

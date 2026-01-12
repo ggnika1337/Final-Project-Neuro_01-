@@ -52,6 +52,7 @@ burgerMenu.addEventListener("click", function () {
   let burgerX = document.getElementById("burgerX");
   let burger = document.getElementById("burger");
   let burgerBar = document.getElementById("burgerBar");
+  let firstPage = document.querySelector("first-page");
 
   if (burgerBar.style.position === "fixed") {
     burgerBar.style.position = "relative";
