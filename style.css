@@ -154,8 +154,19 @@ header {
 }
 
 .heading-burger-yellow {
-  color: rgba(229, 229, 72, 1);
+  color: white;
   padding-left: clamp(0px, 5vw, 150px);
+}
+
+.heading-burger-yellow:hover,
+.heading-burger:hover {
+  color: rgba(229, 229, 72, 1);
+  transition: 0.2s;
+}
+
+.yellow-burger-heading-container:hover::before {
+  display: block;
+  opacity: 1;
 }
 
 .yellow-burger-heading-container {
@@ -163,9 +174,11 @@ header {
   max-width: 660px;
   width: 100%;
   cursor: pointer;
+  position: relative;
 }
 
 .yellow-burger-heading-container::before {
+  top: clamp(10px, 3vw, 35px);
   content: "";
   position: absolute;
   max-width: 1050px;
@@ -173,7 +186,8 @@ header {
   width: 100%;
   height: 2px;
   background: #e8d03f;
-  top: clamp(95px, 15vw, 148px);
+  display: none;
+  transition: opacity 0.3s ease;
 }
 
 .burger-middle {
@@ -736,8 +750,9 @@ footer {
     padding-right: 0px;
   }
   .arrows-container {
-    top: 730px;
+    top: 710px;
     align-self: flex-end;
+    bottom: auto;
   }
   .first-top {
     padding-right: 24px;
@@ -771,7 +786,7 @@ footer {
     font-size: 18px;
   }
   .yellow-burger-heading-container::before {
-    top: clamp(105px, 23.8vw, 108px);
+    top: clamp(30px, 3vw, 35px);
   }
   .burger-tag {
     position: relative;
