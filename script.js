@@ -126,3 +126,43 @@ toEnd.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+// BULLETS FILL FUNCTION
+
+let bulletOne = document.querySelector(".bullets-one");
+let bulletTwo = document.querySelector(".bullets-two");
+let bulletThree = document.querySelector(".bullets-three");
+
+bulletOne.addEventListener("click", () => {
+  bulletOne.style.backgroundColor = "rgba(229, 229, 72, 1)";
+  bulletTwo.style.backgroundColor = "transparent";
+  bulletThree.style.backgroundColor = "transparent";
+});
+bulletThree.addEventListener("click", () => {
+  bulletOne.style.backgroundColor = "transparent";
+  bulletTwo.style.backgroundColor = "rgba(229, 229, 72, 1)";
+  bulletThree.style.backgroundColor = "transparent";
+});
+bulletThree.addEventListener("click", () => {
+  bulletOne.style.backgroundColor = "transparent";
+  bulletTwo.style.backgroundColor = "transparent";
+  bulletThree.style.backgroundColor = "rgba(229, 229, 72, 1)";
+});
+
+// MORE WORKS FUNC
+
+let moreWorks = document.getElementById("moreWorks");
+let worksBtn = document.getElementById("moreWorksBtn");
+let isShown = false;
+
+worksBtn.addEventListener("click", () => {
+  if (isShown) {
+    moreWorks.style.display = "none";
+    worksBtn.textContent = "MORE WORKS";
+    isShown = false;
+  } else {
+    moreWorks.style.display = "flex";
+    worksBtn.textContent = "SHOW LESS";
+    isShown = true
+  }
+});
