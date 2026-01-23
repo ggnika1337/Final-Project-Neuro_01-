@@ -44,9 +44,9 @@ timeOverlay.innerHTML = `${weekday.toUpperCase()} ${day}.${month}`;
 
 let burgerMenu = document.getElementById("burgerMenu");
 let overlay = document.getElementById("menu");
-
 burgerX.style.display = "none";
 
+isOverlay = true;
 burgerMenu.addEventListener("click", function () {
   overlay.classList.toggle("overlay");
   let burgerX = document.getElementById("burgerX");
@@ -54,11 +54,11 @@ burgerMenu.addEventListener("click", function () {
   let burgerBar = document.getElementById("burgerBar");
   let firstPage = document.querySelector("first-page");
 
-  if (burgerBar.style.position === "fixed") {
-    burgerBar.style.position = "relative";
+  isOverlay = !isOverlay;
+
+  if (isOverlay === true) {
     document.body.style.overflow = "auto";
   } else {
-    burgerBar.style.position = "fixed";
     document.body.style.overflow = "hidden";
   }
 
@@ -116,15 +116,22 @@ playBtn.addEventListener("click", () => {
   }
 });
 
-// SCROLL TO BOTTOM FUNC
+// ARROW SCROLL FUNC
 
+window.addEventListener("scroll", function () {
+  if (window.scrollY === 0) {
+    document.body.style.overflow = "hidden";
+  }
+});
 let toEnd = document.getElementById("toBottom");
+let scrollTo = document.querySelector(".section-header");
 
 toEnd.addEventListener("click", () => {
   window.scrollTo({
-    top: document.body.scrollHeight,
+    top: scrollTo.offsetTop,
     behavior: "smooth",
   });
+  document.body.style.overflowY = "scroll";
 });
 
 // BULLETS FILL FUNCTION
@@ -163,6 +170,6 @@ worksBtn.addEventListener("click", () => {
   } else {
     moreWorks.style.display = "flex";
     worksBtn.textContent = "SHOW LESS";
-    isShown = true
+    isShown = true;
   }
 });
