@@ -57,7 +57,6 @@ burgerMenu.addEventListener("click", function () {
   isOverlay = !isOverlay;
 
   if (isOverlay === true) {
-    document.body.style.overflow = "auto";
   } else {
     document.body.style.overflow = "hidden";
   }
@@ -84,7 +83,6 @@ burgerMobileButtons.forEach((button) => {
 
   if (burgerBar.style.position === "fixed") {
     burgerBar.style.position = "relative";
-    document.body.style.overflow = "auto";
   } else {
     burgerBar.style.position = "fixed";
     document.body.style.overflow = "hidden";
@@ -134,12 +132,23 @@ toEnd.addEventListener("click", () => {
   document.body.style.overflowY = "scroll";
 });
 
+window.addEventListener("load", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+
 // BULLETS FILL FUNCTION
 
 let bulletOne = document.querySelector(".bullets-one");
 let bulletTwo = document.querySelector(".bullets-two");
 let bulletThree = document.querySelector(".bullets-three");
+let bulletOneBottom = document.querySelector(".bullets-one-bottom");
+let bulletTwoBottom = document.querySelector(".bullets-two-bottom");
+let bulletThreeBottom = document.querySelector(".bullets-three-bottom");
 
+bulletOne.style.backgroundColor = "rgba(229, 229, 72, 1)";
 bulletOne.addEventListener("click", () => {
   bulletOne.style.backgroundColor = "rgba(229, 229, 72, 1)";
   bulletTwo.style.backgroundColor = "transparent";
@@ -154,6 +163,23 @@ bulletThree.addEventListener("click", () => {
   bulletOne.style.backgroundColor = "transparent";
   bulletTwo.style.backgroundColor = "transparent";
   bulletThree.style.backgroundColor = "rgba(229, 229, 72, 1)";
+});
+
+bulletOneBottom.style.backgroundColor = "rgba(229, 229, 72, 1)";
+bulletOneBottom.addEventListener("click", () => {
+  bulletOneBottom.style.backgroundColor = "rgba(229, 229, 72, 1)";
+  bulletTwoBottom.style.backgroundColor = "transparent";
+  bulletThreeBottom.style.backgroundColor = "transparent";
+});
+bulletTwoBottom.addEventListener("click", () => {
+  bulletOneBottom.style.backgroundColor = "transparent";
+  bulletTwoBottom.style.backgroundColor = "rgba(229, 229, 72, 1)";
+  bulletThreeBottom.style.backgroundColor = "transparent";
+});
+bulletThreeBottom.addEventListener("click", () => {
+  bulletOneBottom.style.backgroundColor = "transparent";
+  bulletTwoBottom.style.backgroundColor = "transparent";
+  bulletThreeBottom.style.backgroundColor = "rgba(229, 229, 72, 1)";
 });
 
 // MORE WORKS FUNC
@@ -173,3 +199,23 @@ worksBtn.addEventListener("click", () => {
     isShown = true;
   }
 });
+
+// READ MORE FUNC
+
+let lorem = document.getElementById("loremText");
+let readMoreBtn = document.querySelector(".read-more-btn");
+lorem.style.display = "none";
+
+readMoreBtn.addEventListener("click", () => {
+  if (moreText === false) {
+    lorem.style.display = "flex";
+    readMoreBtn.textContent = "HIDE TEXT";
+    moreText = true;
+  } else if (moreText === true) {
+    lorem.style.display = "none";
+    readMoreBtn.textContent = "READ MORE";
+    moreText = false;
+  }
+});
+
+moreText = false;
