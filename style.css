@@ -590,7 +590,7 @@ section {
   width: 100%;
   height: 2px;
   background: #e8d03f;
-  top: clamp(21px, 2.5vw, 95px);
+  top: clamp(21px, 3.3vw, 95px);
 }
 
 .read-more-btn,
