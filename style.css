@@ -8,6 +8,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  transition: all 1s ease-in-out;
 }
 
 body {
@@ -69,6 +70,11 @@ header {
   cursor: pointer;
 }
 
+.burger-menu-btn {
+  width: 9px;
+  height: 60px;
+}
+
 .page-counter {
   display: flex;
   flex-direction: column;
@@ -123,23 +129,18 @@ header {
   min-height: 100vh;
   width: 100%;
   position: fixed;
-  top: 0;
-  height: 0;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
+  transition: all 1s ease-in-out;
+  padding-left: clamp(30px, 11.5vw, 156px);
+  padding-top: clamp(28px, 3vw, 50px);
+  padding-right: clamp(20px, 3vw, 80px);
+  background: rgba(0, 0, 0, 1);
+  left: -100%;
   &.overlay {
     visibility: visible;
     opacity: 1;
-    padding-left: clamp(110px, 10vw, 150px);
-    padding-right: 50px;
-    padding-top: 50px;
     background: rgba(0, 0, 0, 1);
     overflow: hidden;
-  }
-
-  li {
-    list-style: none;
+    left: 0px;
   }
 }
 
@@ -1280,10 +1281,33 @@ body::-webkit-scrollbar-thumb {
     padding-right: 24px;
   }
   #menu {
-    min-height: 100%;
     &.overlay {
       padding-left: 24px;
       padding-right: 0px;
+    }
+  }
+
+  #menu {
+    display: flex;
+    flex-direction: column;
+    gap: 120px;
+    z-index: 3;
+    min-height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: -100%;
+    padding-left: 24px;
+    padding-right: 0px;
+    left: 0px;
+    &.overlay {
+      visibility: visible;
+      opacity: 1;
+      background: rgba(0, 0, 0, 1);
+      overflow: hidden;
+      top: 0px;
+      padding-left: 24px;
+      padding-right: 0px;
+      left: 0px;
     }
   }
 

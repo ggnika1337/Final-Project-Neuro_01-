@@ -4,6 +4,101 @@ const themeBtn = document.querySelector(".theme-btn");
 const themeBtnOverlay = document.querySelector(".theme-btn-overlay");
 let isRight = false;
 
+// HTML ELEMENTS FOR LIGHT THEME
+let PageFirst = document.querySelector(".first-page");
+let heading = document.querySelector(".heading");
+let headingThird = document.querySelector(".heading-third");
+let burgerMenu = document.getElementById("burgerMenu");
+let overlay = document.getElementById("menu");
+let burgerBar = document.getElementById("burgerBar");
+let firstPage = document.querySelector("first-page");
+let firstPageInfo = document.querySelector(".page-one-text");
+let pageCounter = document.querySelector(".first-page-number");
+let sectionHeader = document.querySelector(".section-header");
+let section = document.querySelector(".middle-pages");
+let lorem = document.getElementById("loremText");
+let readMoreBtn = document.querySelector(".read-more-btn");
+let aboutProject = document.querySelectorAll(".about-project");
+let subject = document.querySelectorAll(".project-subject");
+let pros = document.querySelectorAll(".project-pros");
+let wholeProject = document.querySelectorAll(".project");
+let triangle = document.querySelectorAll(".triangle");
+let projectName = document.querySelectorAll(".project-name");
+// HTML ELEMENTS FOR LIGHT THEME
+
+let isDarkMode = true;
+changeTheme();
+
+function changeTheme() {
+  if (localStorage.getItem("theme") === "true") {
+    // LIGHT THEME
+    burgerBar.style.background = "rgba(199, 197, 197, 0.9)";
+    overlay.style.background = "rgba(199, 197, 197, 1)";
+    PageFirst.style.background = "rgba(199, 197, 197, 0.5)";
+    heading.style.color = "black";
+    firstPageInfo.style.color = "black";
+    pageCounter.style.color = "black";
+    headingThird.style.color = "black";
+    sectionHeader.style.color = "black";
+    lorem.style.backgroundColor = "white";
+    section.style.backgroundColor = "white";
+    readMoreBtn.style.border = "1px solid black";
+    readMoreBtn.style.color = "black";
+
+    subject.forEach((el) => {
+      el.style.color = "rgba(0, 0, 0, 0.8)";
+    });
+    aboutProject.forEach((el) => {
+      el.style.color = "rgba(0, 0, 0, 0.8)";
+    });
+    pros.forEach((el) => {
+      el.style.color = "rgba(0, 0, 0, 0.8)";
+    });
+    wholeProject.forEach((el) => {
+      el.style.boxShadow = "8px 8px 15px #0000008a";
+    });
+    triangle.forEach((el) => {
+      el.style.display = "none";
+    });
+    projectName.forEach((el) => {
+      el.style.color = "black";
+    });
+  } else {
+    // DARK THEME
+    burgerBar.style.background = "rgba(65, 65, 65, 0.2)";
+    overlay.style.background = "rgba(0, 0, 0, 1)";
+    PageFirst.style.background = "rgba(199, 197, 197, 0)";
+    headingThird.style.color = "white";
+    firstPageInfo.style.color = "white";
+    pageCounter.style.color = "white";
+    headingThird.style.color = "white";
+    sectionHeader.style.color = "transparent";
+    section.style.backgroundColor = "black";
+    lorem.style.backgroundColor = "black";
+    lorem.style.webkitTextStroke = "none";
+    readMoreBtn.style.border = "1px solid white";
+    readMoreBtn.style.color = "white";
+    subject.forEach((el) => {
+      el.style.color = "rgba(255, 255, 255, 0.8)";
+    });
+    aboutProject.forEach((el) => {
+      el.style.color = "rgba(255, 255, 255, 0.8)";
+    });
+    pros.forEach((el) => {
+      el.style.color = "rgba(255, 255, 255, 0.8)";
+    });
+    wholeProject.forEach((el) => {
+      el.style.boxShadow = "8px 8px 15px #00000080";
+    });
+    triangle.forEach((el) => {
+      el.style.display = "block";
+    });
+    projectName.forEach((el) => {
+      el.style.color = "none";
+    });
+  }
+}
+
 themeBtn.addEventListener("click", () => {
   if (themeBtn.style.justifyContent === "flex-end") {
     themeBtn.style.justifyContent = "flex-start";
@@ -13,7 +108,12 @@ themeBtn.addEventListener("click", () => {
     themeBtnOverlay.style.justifyContent = "flex-end";
   }
   isRight = !isRight;
+  isDarkMode = !isDarkMode;
+  localStorage.setItem("theme", isDarkMode);
+  changeTheme();
 });
+
+console.log(isDarkMode);
 
 themeBtnOverlay.addEventListener("click", () => {
   if (themeBtnOverlay.style.justifyContent === "flex-end") {
@@ -24,6 +124,10 @@ themeBtnOverlay.addEventListener("click", () => {
     themeBtn.style.justifyContent = "flex-end";
   }
   isRight = !isRight;
+
+  isDarkMode = !isDarkMode;
+  localStorage.setItem("theme", isDarkMode);
+  changeTheme();
 });
 
 // CURRENT TIME LOGIC
@@ -42,17 +146,12 @@ timeOverlay.innerHTML = `${weekday.toUpperCase()} ${day}.${month}`;
 
 // HAMBURGER
 
-let burgerMenu = document.getElementById("burgerMenu");
-let overlay = document.getElementById("menu");
-burgerX.style.display = "none";
-
 isOverlay = true;
+burgerX.style.display = "none";
 burgerMenu.addEventListener("click", function () {
   overlay.classList.toggle("overlay");
   let burgerX = document.getElementById("burgerX");
   let burger = document.getElementById("burger");
-  let burgerBar = document.getElementById("burgerBar");
-  let firstPage = document.querySelector("first-page");
 
   isOverlay = !isOverlay;
 
@@ -61,7 +160,7 @@ burgerMenu.addEventListener("click", function () {
     document.body.style.overflow = "hidden";
   }
 
-  if (burgerX.style.display === "block") {
+  if (isOverlay === true) {
     burgerX.style.display = "none";
     burger.style.display = "block";
   } else {
@@ -202,8 +301,6 @@ worksBtn.addEventListener("click", () => {
 
 // READ MORE FUNC
 
-let lorem = document.getElementById("loremText");
-let readMoreBtn = document.querySelector(".read-more-btn");
 lorem.style.display = "none";
 
 readMoreBtn.addEventListener("click", () => {
