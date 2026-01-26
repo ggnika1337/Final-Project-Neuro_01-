@@ -24,15 +24,16 @@ let pros = document.querySelectorAll(".project-pros");
 let wholeProject = document.querySelectorAll(".project");
 let triangle = document.querySelectorAll(".triangle");
 let projectName = document.querySelectorAll(".project-name");
+let worksBtn = document.getElementById("moreWorksBtn");
 // HTML ELEMENTS FOR LIGHT THEME
 
-let isDarkMode = true;
+let isDarkMode = localStorage.getItem("theme") === "true";
 changeTheme();
 
 function changeTheme() {
   if (localStorage.getItem("theme") === "true") {
     // LIGHT THEME
-    burgerBar.style.background = "rgba(199, 197, 197, 0.9)";
+    burgerBar.style.background = "rgba(199, 197, 197, 0.7)";
     overlay.style.background = "rgba(199, 197, 197, 1)";
     PageFirst.style.background = "rgba(199, 197, 197, 0.5)";
     heading.style.color = "black";
@@ -40,10 +41,11 @@ function changeTheme() {
     pageCounter.style.color = "black";
     headingThird.style.color = "black";
     sectionHeader.style.color = "black";
-    lorem.style.backgroundColor = "white";
     section.style.backgroundColor = "white";
     readMoreBtn.style.border = "1px solid black";
     readMoreBtn.style.color = "black";
+    worksBtn.style.border = "1px solid black";
+    worksBtn.style.color = "black";
 
     subject.forEach((el) => {
       el.style.color = "rgba(0, 0, 0, 0.8)";
@@ -69,15 +71,17 @@ function changeTheme() {
     overlay.style.background = "rgba(0, 0, 0, 1)";
     PageFirst.style.background = "rgba(199, 197, 197, 0)";
     headingThird.style.color = "white";
+    heading.style.color = "white";
     firstPageInfo.style.color = "white";
     pageCounter.style.color = "white";
     headingThird.style.color = "white";
     sectionHeader.style.color = "transparent";
     section.style.backgroundColor = "black";
-    lorem.style.backgroundColor = "black";
     lorem.style.webkitTextStroke = "none";
     readMoreBtn.style.border = "1px solid white";
     readMoreBtn.style.color = "white";
+    worksBtn.style.border = "1px solid white";
+    worksBtn.style.color = "none";
     subject.forEach((el) => {
       el.style.color = "rgba(255, 255, 255, 0.8)";
     });
@@ -238,14 +242,135 @@ window.addEventListener("load", () => {
   });
 });
 
-// BULLETS FILL FUNCTION
+// BURGER SCROLL FUNC
+
+let home = document.getElementById("homeScroll");
+let works = document.getElementById("worksScroll");
+let company = document.getElementById("companyScroll");
+let thoughts = document.getElementById("thoughtsScroll");
+let contact = document.getElementById("contactScroll");
+
+home.addEventListener("click", () => {
+  overlay.classList.toggle("overlay");
+  burgerBar.style.position = "relative";
+  document.body.style.overflowY = "scroll";
+  burgerX.style.display = "none";
+  burger.style.display = "block";
+  window.scrollTo({
+    top: scrollTo.offsetTop,
+    behavior: "smooth",
+  });
+});
+let worksScroll = document.querySelector(".latest-projects-heading");
+works.addEventListener("click", () => {
+  overlay.classList.toggle("overlay");
+  burgerBar.style.position = "relative";
+  document.body.style.overflowY = "scroll";
+  burgerX.style.display = "none";
+  burger.style.display = "block";
+  window.scrollTo({
+    top: worksScroll.offsetTop,
+    behavior: "smooth",
+  });
+});
+let companyScroll = document.querySelector(".other-projects");
+company.addEventListener("click", () => {
+  overlay.classList.toggle("overlay");
+  burgerBar.style.position = "relative";
+  document.body.style.overflowY = "scroll";
+  burgerX.style.display = "none";
+  burger.style.display = "block";
+  window.scrollTo({
+    top: companyScroll.offsetTop,
+    behavior: "smooth",
+  });
+});
+let thoughtsScroll = document.querySelector(".last-section");
+thoughts.addEventListener("click", () => {
+  overlay.classList.toggle("overlay");
+  burgerBar.style.position = "relative";
+  document.body.style.overflowY = "scroll";
+  burgerX.style.display = "none";
+  burger.style.display = "block";
+  window.scrollTo({
+    top: thoughtsScroll.offsetTop,
+    behavior: "smooth",
+  });
+});
+contact.addEventListener("click", () => {
+  overlay.classList.toggle("overlay");
+  burgerBar.style.position = "relative";
+  document.body.style.overflowY = "scroll";
+  burgerX.style.display = "none";
+  burger.style.display = "block";
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth",
+  });
+});
+
+let homeBottom = document.getElementById("homeBottom");
+let worksBottom = document.getElementById("worksBottom");
+let companyBottom = document.getElementById("companyBottom");
+let thoughtsBottom = document.getElementById("thoughtsBottom");
+let contactBottom = document.getElementById("contactBottom");
+
+homeBottom.addEventListener("click", () => {
+  burgerBar.style.position = "relative";
+  document.body.style.overflowY = "scroll";
+  burgerX.style.display = "none";
+  burger.style.display = "block";
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
+worksBottom.addEventListener("click", () => {
+  burgerBar.style.position = "relative";
+  document.body.style.overflowY = "scroll";
+  burgerX.style.display = "none";
+  burger.style.display = "block";
+  window.scrollTo({
+    top: worksScroll.offsetTop,
+    behavior: "smooth",
+  });
+});
+companyBottom.addEventListener("click", () => {
+  burgerBar.style.position = "relative";
+  document.body.style.overflowY = "scroll";
+  burgerX.style.display = "none";
+  burger.style.display = "block";
+  window.scrollTo({
+    top: companyScroll.offsetTop,
+    behavior: "smooth",
+  });
+});
+thoughtsBottom.addEventListener("click", () => {
+  burgerBar.style.position = "relative";
+  document.body.style.overflowY = "scroll";
+  burgerX.style.display = "none";
+  burger.style.display = "block";
+  window.scrollTo({
+    top: thoughtsScroll.offsetTop,
+    behavior: "smooth",
+  });
+});
+contactBottom.addEventListener("click", () => {
+  burgerBar.style.position = "relative";
+  document.body.style.overflowY = "scroll";
+  burgerX.style.display = "none";
+  burger.style.display = "block";
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth",
+  });
+});
+
+// BULLETS FILL FUNC
 
 let bulletOne = document.querySelector(".bullets-one");
 let bulletTwo = document.querySelector(".bullets-two");
 let bulletThree = document.querySelector(".bullets-three");
-let bulletOneBottom = document.querySelector(".bullets-one-bottom");
-let bulletTwoBottom = document.querySelector(".bullets-two-bottom");
-let bulletThreeBottom = document.querySelector(".bullets-three-bottom");
 
 bulletOne.style.backgroundColor = "rgba(229, 229, 72, 1)";
 bulletOne.addEventListener("click", () => {
@@ -264,27 +389,9 @@ bulletThree.addEventListener("click", () => {
   bulletThree.style.backgroundColor = "rgba(229, 229, 72, 1)";
 });
 
-bulletOneBottom.style.backgroundColor = "rgba(229, 229, 72, 1)";
-bulletOneBottom.addEventListener("click", () => {
-  bulletOneBottom.style.backgroundColor = "rgba(229, 229, 72, 1)";
-  bulletTwoBottom.style.backgroundColor = "transparent";
-  bulletThreeBottom.style.backgroundColor = "transparent";
-});
-bulletTwoBottom.addEventListener("click", () => {
-  bulletOneBottom.style.backgroundColor = "transparent";
-  bulletTwoBottom.style.backgroundColor = "rgba(229, 229, 72, 1)";
-  bulletThreeBottom.style.backgroundColor = "transparent";
-});
-bulletThreeBottom.addEventListener("click", () => {
-  bulletOneBottom.style.backgroundColor = "transparent";
-  bulletTwoBottom.style.backgroundColor = "transparent";
-  bulletThreeBottom.style.backgroundColor = "rgba(229, 229, 72, 1)";
-});
-
 // MORE WORKS FUNC
 
 let moreWorks = document.getElementById("moreWorks");
-let worksBtn = document.getElementById("moreWorksBtn");
 let isShown = false;
 
 worksBtn.addEventListener("click", () => {
@@ -316,3 +423,12 @@ readMoreBtn.addEventListener("click", () => {
 });
 
 moreText = false;
+
+// SWIPERJS IN THE END OF SECTION
+
+var swiper = new Swiper(".mySwiper", {
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
