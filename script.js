@@ -26,6 +26,7 @@ let wholeProject = document.querySelectorAll(".project");
 let triangle = document.querySelectorAll(".triangle");
 let projectName = document.querySelectorAll(".project-name");
 let worksBtn = document.getElementById("moreWorksBtn");
+let moreStories = document.querySelector(".more-stories-btn");
 
 // HTML ELEMENTS FOR LIGHT THEME
 
@@ -48,6 +49,7 @@ function changeTheme() {
     readMoreBtn.style.color = "black";
     worksBtn.style.border = "1px solid black";
     worksBtn.style.color = "black";
+    moreStories.style.border = "1px solid black";
     subject.forEach((el) => {
       el.style.color = "rgba(0, 0, 0, 0.8)";
     });
@@ -83,6 +85,7 @@ function changeTheme() {
     readMoreBtn.style.color = "white";
     worksBtn.style.border = "1px solid white";
     worksBtn.style.color = "white";
+    moreStories.style.border = "1px solid white";
     subject.forEach((el) => {
       el.style.color = "rgba(255, 255, 255, 0.8)";
     });
