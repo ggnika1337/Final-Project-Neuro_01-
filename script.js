@@ -11,6 +11,7 @@ let headingThird = document.querySelector(".heading-third");
 let burgerMenu = document.getElementById("burgerMenu");
 let overlay = document.getElementById("menu");
 let burgerBar = document.getElementById("burgerBar");
+let moreWorks = document.getElementById("moreWorks");
 let firstPage = document.querySelector("first-page");
 let firstPageInfo = document.querySelector(".page-one-text");
 let pageCounter = document.querySelector(".first-page-number");
@@ -25,6 +26,7 @@ let wholeProject = document.querySelectorAll(".project");
 let triangle = document.querySelectorAll(".triangle");
 let projectName = document.querySelectorAll(".project-name");
 let worksBtn = document.getElementById("moreWorksBtn");
+
 // HTML ELEMENTS FOR LIGHT THEME
 
 let isDarkMode = localStorage.getItem("theme") === "true";
@@ -46,7 +48,6 @@ function changeTheme() {
     readMoreBtn.style.color = "black";
     worksBtn.style.border = "1px solid black";
     worksBtn.style.color = "black";
-
     subject.forEach((el) => {
       el.style.color = "rgba(0, 0, 0, 0.8)";
     });
@@ -81,7 +82,7 @@ function changeTheme() {
     readMoreBtn.style.border = "1px solid white";
     readMoreBtn.style.color = "white";
     worksBtn.style.border = "1px solid white";
-    worksBtn.style.color = "none";
+    worksBtn.style.color = "white";
     subject.forEach((el) => {
       el.style.color = "rgba(255, 255, 255, 0.8)";
     });
@@ -98,7 +99,7 @@ function changeTheme() {
       el.style.display = "block";
     });
     projectName.forEach((el) => {
-      el.style.color = "none";
+      el.style.color = "white";
     });
   }
 }
@@ -116,8 +117,6 @@ themeBtn.addEventListener("click", () => {
   localStorage.setItem("theme", isDarkMode);
   changeTheme();
 });
-
-console.log(isDarkMode);
 
 themeBtnOverlay.addEventListener("click", () => {
   if (themeBtnOverlay.style.justifyContent === "flex-end") {
@@ -160,14 +159,10 @@ burgerMenu.addEventListener("click", function () {
   isOverlay = !isOverlay;
 
   if (isOverlay === true) {
-  } else {
-    document.body.style.overflow = "hidden";
-  }
-
-  if (isOverlay === true) {
     burgerX.style.display = "none";
     burger.style.display = "block";
   } else {
+    document.body.style.overflow = "hidden";
     burgerX.style.display = "block";
     burger.style.display = "none";
   }
@@ -391,7 +386,6 @@ bulletThree.addEventListener("click", () => {
 
 // MORE WORKS FUNC
 
-let moreWorks = document.getElementById("moreWorks");
 let isShown = false;
 
 worksBtn.addEventListener("click", () => {
