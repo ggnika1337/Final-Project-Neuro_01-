@@ -96,7 +96,13 @@ function changeTheme() {
       el.style.color = "rgba(255, 255, 255, 0.8)";
     });
     wholeProject.forEach((el) => {
-      el.style.boxShadow = "8px 8px 15px #00000080";
+      el.addEventListener("mouseenter", () => {
+        el.style.boxShadow = "8px 8px 15px #eaff0071";
+      });
+
+      el.addEventListener("mouseleave", () => {
+        el.style.boxShadow = "none";
+      });
     });
     triangle.forEach((el) => {
       el.style.display = "block";
