@@ -1393,9 +1393,9 @@ body::-webkit-scrollbar-thumb {
   .heading-second-container::before {
     width: 95%;
   }
-  .project-image {
+  /* .project-image {
     filter: grayscale(0%);
-  }
+  } */
   #toBottom {
     margin-right: 10px;
   }
