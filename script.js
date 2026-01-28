@@ -411,15 +411,15 @@ worksBtn.addEventListener("click", () => {
 
 // READ MORE FUNC
 
-lorem.style.display = "none";
+lorem.style.height = "0px";
 
 readMoreBtn.addEventListener("click", () => {
   if (moreText === false) {
-    lorem.style.display = "flex";
+    lorem.style.height = "200px";
     readMoreBtn.textContent = "HIDE TEXT";
     moreText = true;
   } else if (moreText === true) {
-    lorem.style.display = "none";
+    lorem.style.height = "0px";
     readMoreBtn.textContent = "READ MORE";
     moreText = false;
   }
