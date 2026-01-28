@@ -565,6 +565,10 @@ section {
   padding-bottom: 116px;
 }
 
+#loremText {
+  overflow: hidden;
+}
+
 .section-container {
   width: 100%;
 }
@@ -617,11 +621,6 @@ section {
   color: rgba(0, 0, 0, 1);
   transition: 0.5s;
 }
-
-#moreWorks {
-  display: none;
-}
-
 .latest-projects {
   -webkit-text-stroke: 1px rgba(102, 102, 102, 1);
   padding-top: 240px;
@@ -754,7 +753,7 @@ section {
 
 .project:hover {
   .project-hovers {
-    opacity: 1;
+    height: 128px;
   }
   .project-image {
     filter: grayscale(0%);
@@ -767,10 +766,10 @@ section {
   bottom: 0px;
   right: 0px;
   display: flex;
-  opacity: 0;
+  height: 0px;
   flex-direction: row;
   width: 100%;
-  transition: opacity 0.7s ease;
+  overflow: hidden;
 }
 
 .project:hover {
@@ -1214,6 +1213,10 @@ footer {
   color: black;
 }
 
+#moreWorks {
+  height: 0px;
+}
+
 /* SCROLLBAR STYLE */
 
 body::-webkit-scrollbar {
@@ -1519,9 +1522,6 @@ body::-webkit-scrollbar-thumb {
   }
   .more-works-bullets {
     display: none;
-  }
-  #moreWorks {
-    display: flex;
   }
   .yellow-bar,
   .small-yellow-bar {

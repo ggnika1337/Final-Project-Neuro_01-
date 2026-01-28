@@ -396,14 +396,14 @@ bulletThree.addEventListener("click", () => {
 // MORE WORKS FUNC
 
 let isShown = false;
-
+moreWorks.style.overflow = "hidden";
 worksBtn.addEventListener("click", () => {
   if (isShown) {
-    moreWorks.style.display = "none";
+    moreWorks.style.height = "0px";
     worksBtn.textContent = "MORE WORKS";
     isShown = false;
   } else {
-    moreWorks.style.display = "flex";
+    moreWorks.style.height = "691px";
     worksBtn.textContent = "SHOW LESS";
     isShown = true;
   }
@@ -415,8 +415,8 @@ lorem.style.height = "0px";
 
 readMoreBtn.addEventListener("click", () => {
   if (moreText === false) {
-    lorem.style.height = "200px";
-    readMoreBtn.textContent = "HIDE TEXT";
+    lorem.style.height = "210px";
+    readMoreBtn.textContent = "READ LESS";
     moreText = true;
   } else if (moreText === true) {
     lorem.style.height = "0px";
